@@ -1,0 +1,21 @@
+// Setting an item in localStorage
+localStorage.setItem('myState', JSON.stringify({ key: 'value' }));
+
+// Retrieving an item from localStorage
+const myState = JSON.parse(localStorage.getItem('myState'));
+
+
+// Using Next.js Link component to navigate with URL parameters
+import Link from 'next/link';
+
+<Link href={`/next-page?param=value`}>Go to Next Page</Link>
+
+// Accessing the parameter in the next page
+import { useRouter } from 'next/router';
+
+const NextPage = () => {
+  const router = useRouter();
+  const { param } = router.query;
+
+  return <div>{param}</div>;
+};
