@@ -9,6 +9,14 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
+  /* SAFETYKIT COLORS */
+  --safetykit-red: #D53F8C;
+  --safetykit-gradient: linear-gradient(
+    to bottom right,
+    #FFDF1F,
+    #D53F8C
+  );
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,
@@ -55,6 +63,71 @@
 /* FOR HOVER EFFECTS ON BUTTONS, ADD A TRANSITION DELAY (e.g. 0.125s) to ensure the hover is INTENTIONAL.
 a::after { transition: scale 0.2s 0.125s ease-in-out; }
  */
+
+ ::file-selector-button {
+  border: none;
+  background-color: var(--safetykit-red);
+  color: white;
+  border-radius: 5px;
+  padding: 4px 6px;
+  cursor: pointer;
+  display: inline-block;
+ }
+ ::file-selector-button:hover {
+ }
+ input[type="file"] {
+  padding: 0.75em;
+ }
+
+ .copy-paste-element {
+
+  text-align: left;
+  position: relative;
+  background-color: #f6f9fc;
+  border-radius: 3px;
+  border: 1px solid #dce6e9;
+  padding: 15px;
+  margin-bottom: 1rem;
+
+}
+
+.copy-paste-element {
+  max-width: 100%; 
+  /* margin: auto; */
+  padding-top: 21px;
+
+}
+
+@media screen and (max-width: 600px) {
+  .copy-paste-element {
+    max-width: 98%; 
+    margin: auto;
+  }
+}
+
+.copy-paste-element p {
+  margin: 0;
+  /* margin-bottom: 0.5em; */
+  /* line-height: 1.5; */
+  font-size: 14pt;
+}
+
+.copy-icon {
+  position: absolute;
+  top: 9px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.copy-icon:focus {
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
 
 @keyframes colorChange {
   0% {
