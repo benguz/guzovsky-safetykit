@@ -14,6 +14,7 @@ const StyledComponent = styled(Box)`
 //   }
   width: 98%;
   height: 100%;
+  max-height: 100%;
   overflow: hidden;
 
   display: flex;
@@ -30,24 +31,30 @@ const StyledComponent = styled(Box)`
     width: 98%;
     flex-direction: column;
   }
+
+   
 `;
 
 // ContentLeft styles
 const ContentLeftComponent = styled(Box)`
   width: 55%;
   height: 100%;
-  overflow-y: scroll;
-  padding-right: 17px; 
-  box-sizing: content-box;
-
-  padding-right: 3em;
+  max-height: 100%;
+  overflow: scroll;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar { 
+      display: none;  /* Safari and Chrome */
+  }
   display: flex;
+  flex-direction: column;
 
   margin: auto;
+  margin-right: 3em;
 
   @media screen and (max-width: 720px) {
     width: 98%;
-    padding-right: 0;
+    margin-right: 0;
   }
 
 `;
@@ -64,11 +71,11 @@ const DemoRightComponent = styled(Box)`
     }
 `
 
-function ContentLeft({ children }) {
+export function ContentLeft({ children }) {
     return <ContentLeftComponent>{ children }</ContentLeftComponent>
 }
 
-function DemoRight({ children }) {
+export function DemoRight({ children }) {
     return <DemoRightComponent>{ children }</DemoRightComponent>
 }
 

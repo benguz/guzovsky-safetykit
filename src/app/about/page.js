@@ -5,6 +5,7 @@ import styles from "../page.module.css";
 import { Button, Textarea, VStack, Text, useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import Responsive  from '@/components/responsive';
+import ContentDemo, { ContentLeft, DemoRight } from '@/components/contentLeftDemoRight';
 
 
 export default function FormPage() {
@@ -25,7 +26,8 @@ export default function FormPage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    e.target.style.height = (e.target.scrollHeight) + 1 +  "px";
+    e.target.style.height = (e.target.scrollHeight) + 1 +  "px"; 
+    // IF THIS RESIZING BREAKS, YOU CAN SOLVE WITH CSS: textarea, input { field-sizing: content; }
 
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -100,4 +102,27 @@ export default function FormPage() {
         </VStack>
     </Responsive>
   );
+//   return (
+//     <ContentDemo maxHeight="100%">
+//         <>
+//             <Text fontSize='4xl' fontWeight="600">Form Title</Text>
+//             <VStack as="form" onSubmit={handleSubmit} spacing={0} width="100%">
+//                 <Text sx={formQuestionStyle}>Question one</Text>
+//                 {renderTextarea('input1')}
+//                 <Text sx={formQuestionStyle}>Question two</Text>
+//                 {renderTextarea('input2')}
+//                 <Text sx={formQuestionStyle}>Question three</Text>
+//                 {renderTextarea('input3')}
+//                 <Text sx={formQuestionStyle}>Question four</Text>
+//                 {renderTextarea('input4')}
+//             <Button type="submit">Submit</Button>
+//             </VStack>
+//         </>
+//         <>
+//             <Text>Sample text</Text>
+//         </>
+//     </ContentDemo>
+//   );
+
+  
 }

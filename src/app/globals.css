@@ -45,6 +45,17 @@
   width: 100%;
 }
 
+/* BUTTON STYLES TO PREVENT ANNOYING SIZING, HIGHLIGHTING, AND WEIRD MOBILE DOUBLE-TAP-ZOOMS */
+.button,
+::file-selector-button {
+  inline-size: fit-content;
+  touch-action: manipulation;
+  user-select: none;
+}
+/* FOR HOVER EFFECTS ON BUTTONS, ADD A TRANSITION DELAY (e.g. 0.125s) to ensure the hover is INTENTIONAL.
+a::after { transition: scale 0.2s 0.125s ease-in-out; }
+ */
+
 @keyframes colorChange {
   0% {
     color: gray;
@@ -53,6 +64,8 @@
     color: red;
   }
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {

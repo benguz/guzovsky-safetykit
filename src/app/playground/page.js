@@ -1,5 +1,4 @@
 'use client'
-require('dotenv').config();
 
 import React, { useEffect, useState } from 'react';
 import { Flex, Spacer, Box, Table, Thead, Tr, Th, Tbody, Td, Card, CardHeader, Heading, CardBody, Text} from '@chakra-ui/react';
@@ -7,46 +6,20 @@ import Image from "next/image";
 import styles from "../page.module.css";
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    // Fetch the users from the API
-    const fetchUsers = async () => {
-        try {
-          const response = await fetch('/api/load');
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          const data = await response.json();
-          setUsers(data);
-        } catch (e) {
-          setError(e.message);
-          console.error('Fetching users failed:', e);
-        }
-      };
-
-    fetchUsers();
-  }, []); // The empty array ensures this effect only runs once after the initial render
-
-  if (error) {
-    return <p>Error loading users: {error}</p>;
-  }
-
-  return (
-    <Flex id="dashboard-container" h="100vh">
+    return (
+        <Flex id="dashboard-container" h="100vh">
             <Flex direction="column" w="55%" padding='1em' id="leftColumn"  spacing="4">
                 <Flex id="topStats" justifyContent="space-between" alignItems="center" margin="10px 0px 10px 0px">
-                    <Card padding="30px" flex="2">
+                    <Card padding="30px">
                         <CardBody>
                         Example
                         </CardBody>
                     </Card>
-                    <Card padding="30px" flex="2">
+                    <Card padding="30px">
                         <CardBody>
                         Example
                         </CardBody>
-                    </Card><Card padding="30px" flex="2">
+                    </Card><Card padding="30px">
                         <CardBody>
                         Example
                         </CardBody>
@@ -69,12 +42,12 @@ export default function Users() {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {users.map((user) => (
+                        {/* {users.map((user) => (
                         <Tr key={user.id}>
                             <Td>{user.name}</Td>
                             <Td>{user.email}</Td>
                         </Tr>
-                        ))}
+                        ))} */}
                     </Tbody>
                     </Table>
             </Flex>
@@ -92,5 +65,5 @@ export default function Users() {
             
 
         </Flex>
-  );
+    )
 }
