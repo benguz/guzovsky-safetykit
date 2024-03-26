@@ -6,7 +6,7 @@ import React from 'react';
 // while rendering a demo on the right (DemoRight). For example, ContentLeft may contain a form and
 // DemoRight may contain a live rendering of how the current form contents affect something else.
 
-
+// Main styles for parent component
 const StyledComponent = styled(Box)`
 //   &:hover {
 //     background: lightgrey;
@@ -32,9 +32,8 @@ const StyledComponent = styled(Box)`
   }
 `;
 
-
+// ContentLeft styles
 const ContentLeftComponent = styled(Box)`
-
   width: 55%;
   height: 100%;
   overflow-y: scroll;
@@ -53,6 +52,7 @@ const ContentLeftComponent = styled(Box)`
 
 `;
 
+// DemoRight styles
 const DemoRightComponent = styled(Box)`
     width: 45%;
     max-height: 100%;    
@@ -63,6 +63,7 @@ const DemoRightComponent = styled(Box)`
         padding-right: 0;
     }
 `
+
 function ContentLeft({ children }) {
     return <ContentLeftComponent>{ children }</ContentLeftComponent>
 }
