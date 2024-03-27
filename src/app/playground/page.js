@@ -5,9 +5,11 @@ import { Flex, Input, Spacer, Box, Table, Thead, Tr, Th, Tbody, Td, Card, CardHe
 import Image from "next/image";
 import styles from "../page.module.css";
 import CopyPasteElement  from '@/components/copypaste';
+import Qualify  from '@/components/qualifying';
 
 export default function Users() {
     return (
+        <>
         <Flex id="dashboard-container" h="100vh">
             <Flex direction="column" w="55%" padding='1em' id="leftColumn"  spacing="4">
                 <Flex id="topStats" justifyContent="space-between" alignItems="center" margin="10px 0px 10px 0px">
@@ -29,9 +31,17 @@ export default function Users() {
                 <Card variant='elevated'>
                     <CardHeader paddingBottom="8px">
                         <Heading size='md'>Yonka honka</Heading>
+                        <Image
+                        src="/safetykit_logo.webp"
+                        alt="SafetyKit Logo"
+                        width={100}
+                        height={27}
+                        priority
+                        />
                     </CardHeader>
                         <CardBody paddingTop="8px">
                             <Text>Summary lorem ipsum</Text>
+
                         </CardBody>
                     
                 </Card>
@@ -62,5 +72,7 @@ export default function Users() {
             
 
         </Flex>
+        <Qualify></Qualify>
+        </>
     )
 }

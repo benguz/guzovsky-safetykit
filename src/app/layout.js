@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "SafetyKit!!",
-  description: "Oh, my god. Beautifull.",
+  description: "Oh, my god. Beautiful.",
 };
 
 export default function RootLayout({ children }) {
