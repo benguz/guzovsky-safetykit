@@ -1,19 +1,37 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 import { Link } from '@chakra-ui/next-js'
 
 export default function Home() {
+  const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  console.log(listings.length)
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await fetch('/api/listings?pageSize=10&offset=0&q=Wholesale');
+        const data = await response.json();
+        setListings(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchListings();
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-          <Link href='/about' color='blue.400' _hover={{ color: 'blue.500' }}>
-          About
-        </Link>
+          {listings.length ? listings[0].title : "No listings"}
         </p>
         <div>
           <a
