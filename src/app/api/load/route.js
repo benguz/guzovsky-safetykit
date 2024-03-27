@@ -4,7 +4,7 @@ export async function GET() {
     const pool = new Pool({
         connectionString: process.env.POSTGRES_URL,
         ssl: {
-            rejectUnauthorized: false, // You might need to change this based on your SSL config
+            rejectUnauthorized: false, 
           },
       });
     

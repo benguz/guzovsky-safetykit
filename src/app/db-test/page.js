@@ -1,5 +1,4 @@
 'use client'
-require('dotenv').config();
 
 import React, { useEffect, useState } from 'react';
 import { Flex, Spacer, Box, Table, Thead, Tr, Th, Tbody, Td, Card, CardHeader, Heading, CardBody, Text} from '@chakra-ui/react';
@@ -37,16 +36,16 @@ export default function Users() {
     <Flex id="dashboard-container" h="100vh">
             <Flex direction="column" w="55%" padding='1em' id="leftColumn"  spacing="4">
                 <Flex id="topStats" justifyContent="space-between" alignItems="center" margin="10px 0px 10px 0px">
-                    <Card padding="30px" flex="2">
+                    <Card padding="30px" marginRight="4px" flex="1">
                         <CardBody>
                         Example
                         </CardBody>
                     </Card>
-                    <Card padding="30px" flex="2">
+                    <Card padding="30px" marginRight="4px" flex="1">
                         <CardBody>
                         Example
                         </CardBody>
-                    </Card><Card padding="30px" flex="2">
+                    </Card><Card padding="30px" marginRight="4px" flex="1">
                         <CardBody>
                         Example
                         </CardBody>
@@ -79,7 +78,7 @@ export default function Users() {
                     </Table>
             </Flex>
             <Flex direction="column" w='45%' h="100%" padding='1em'  id="RightColumn">
-            <Card variant='elevated' w='100%' h='100%' display='flex' alignItems="center" justify="center">
+            <Card variant='elevated' w='100%' h='100%' display='flex' alignItems="center" justify="center" backgroundImage="var(--safetykit-gradient)">
                 <Image 
                 src="/vercel.svg"
                 alt="Vercel Logo"
