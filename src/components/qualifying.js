@@ -86,8 +86,7 @@ export function SadCard() {
     )
 }
 
-function SliderThumbWithTooltip() {
-    const [sliderValue, setSliderValue] = React.useState(5)
+function SliderThumbWithTooltip({ sliderValue, setSliderValue }) {
     const [showTooltip, setShowTooltip] = React.useState(false)
     return (
       <Slider
@@ -128,17 +127,19 @@ function SliderThumbWithTooltip() {
   }
 
 export default function Qualify() {
+    const [sliderValue, setSliderValue] = useState(5); 
+
     return (
         <Flex w="100%" height="100vh" maxHeight="100vh">
             <Flex direction="column" width="55%" justify="center" align="center">
                 <Text lineHeight="1" fontSize='4xl' fontWeight="600" color="var(--safetykit-red)" marginBottom="2px">Try SafetyKit.</Text>
                 <Text fontSize='4xl' fontWeight="600" >You could save</Text>
-                <Text fontSize='6xl' lineHeight="1.8"  fontWeight="400">2,600 hours</Text>
+                <Text fontSize='6xl' lineHeight="1.8"  fontWeight="400">{sliderValue * 520} hours</Text>
                 <Text fontSize='md' fontWeight="400">on content moderation every year.</Text>
                 
                 <Text fontSize='md' fontWeight="400" position="absolute" bottom="5px" color="gray">based on data from AirBnB, PayPal, and Substack</Text>
                 <Box w="90%" height="min-content" marginLeft="5%" marginTop="1em">
-                    <SliderThumbWithTooltip ></SliderThumbWithTooltip>
+                    <SliderThumbWithTooltip sliderValue={sliderValue} setSliderValue={setSliderValue}></SliderThumbWithTooltip>
                 </Box>
                 <br></br>
                 <br></br>
@@ -157,7 +158,6 @@ export default function Qualify() {
                 
                 <SadCard></SadCard>
                 <Box position="absolute" top="0" width="100%" backgroundImage="linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1),rgba(255, 255, 255, 0))" h="20vh">
-
                 </Box>
                 <Box position="absolute" bottom="0" width="100%" backgroundImage="linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))" h="20vh">
                 </Box>
